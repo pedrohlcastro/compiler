@@ -49,7 +49,9 @@ public enum TokenType {
     DIV,       // /
 
     // others
-    VAR,             // var
+    VAR_INT,         // var
+    VAR_FLT,         // var
+    VAR_STR,         // var
     LITERAL,         // string literal
     CONST_INT,       // const int
     CONST_FLOAT      // const float

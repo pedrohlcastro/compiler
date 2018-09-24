@@ -12,6 +12,8 @@ public class LexicalAnalysis {
     private int line;
     private PushbackInputStream input;
     private SymbolTable st = new SymbolTable();
+    private TokenType lastType;
+    private int identLevel = 0;
     public LexicalAnalysis(String filename) throws LexicalException {
         try {
             input = new PushbackInputStream(new FileInputStream(filename));
@@ -164,10 +166,22 @@ public class LexicalAnalysis {
              }
          }
          if (e == 9){
-            if (st.contains(lex.token))
+            if (st.contains(lex.token)){
                 lex.type = st.find(lex.token).getTokenType();
-            else
-                lex.type = TokenType.VAR;
+                if(lex.type == TokenType.THEN || lex.type == TokenType.DO){
+                    this.identLevel++;
+                } 
+                else if(lex.type == TokenType.END){
+                    this.identLevel++;
+                }
+                else if(lex.type == TokenType.INT || lex.type == TokenType.FLOAT || lex.type == TokenType.STRING ){
+                    this.lastType = lex.type;
+                }
+            }
+            else{
+                System.out.println(this.lastType);
+                lex.type = st.createVar(lex.token, this.identLevel, this.lastType);
+            }
          }
 
         return lex;
