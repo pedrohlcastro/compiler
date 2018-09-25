@@ -168,18 +168,28 @@ public class LexicalAnalysis {
          if (e == 9){
             if (st.contains(lex.token)){
                 lex.type = st.find(lex.token).getTokenType();
-                if(lex.type == TokenType.THEN || lex.type == TokenType.DO){
-                    this.identLevel++;
+                if(lex.type != TokenType.VAR_FLT ||lex.type != TokenType.VAR_INT ||lex.type != TokenType.VAR_STR){
+                    if(lex.type == TokenType.THEN || lex.type == TokenType.DO){
+                        this.identLevel++;
+                    } 
+                    else if(lex.type == TokenType.END){
+                        this.identLevel++;
+                    }
+                    else if(lex.type == TokenType.INT || lex.type == TokenType.FLOAT || lex.type == TokenType.STRING ){
+                        this.lastType = lex.type;
+                    } else if(lex.type == TokenType.DOT_COMMA){
+                        this.lastType = null;
+                    }
                 } 
-                else if(lex.type == TokenType.END){
-                    this.identLevel++;
+                /* EXPLODE ERRO DE VARIAVEL JA DECLARADA
+                else {
+                    if(this.lastType != null){
+                        lex.type = st.createVar(lex.token, this.identLevel, this.lastType);
+                    }
                 }
-                else if(lex.type == TokenType.INT || lex.type == TokenType.FLOAT || lex.type == TokenType.STRING ){
-                    this.lastType = lex.type;
-                }
+               */
             }
             else{
-                System.out.println(this.lastType);
                 lex.type = st.createVar(lex.token, this.identLevel, this.lastType);
             }
          }

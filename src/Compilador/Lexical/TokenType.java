@@ -49,6 +49,7 @@ public enum TokenType {
     DIV,       // /
 
     // others
+    VAR,
     VAR_INT,         // var
     VAR_FLT,         // var
     VAR_STR,         // var

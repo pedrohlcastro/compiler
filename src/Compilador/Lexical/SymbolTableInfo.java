@@ -21,5 +21,11 @@ public class SymbolTableInfo {
     public TokenType getTokenType(){
         return this.t;
     }
+
+    @Override
+    public String toString() {
+        return "[ identLevel: " + this.level + ", TokenType:" + this.t +" ]";
+    }
+    
     
 }

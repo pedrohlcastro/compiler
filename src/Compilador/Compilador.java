@@ -5,11 +5,12 @@ import Compilador.Lexical.*;
  * @author pedro
  */
 public class Compilador {
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        SymbolTable st = new SymbolTable();
+
         if (args.length != 1) {
             System.out.println("Usage: java main [File to Compile]");
             return;
@@ -36,6 +37,8 @@ public class Compilador {
         } catch (Exception e) {
             System.err.println(e.getMessage());
             //e.printStackTrace();
+        } finally{
+            st.printSymbolTable();
         }
     }
 
