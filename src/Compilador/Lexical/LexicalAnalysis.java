@@ -62,10 +62,6 @@ public class LexicalAnalysis {
                         lex.token += (char) c;
                         e = 5;
                     }
-                    else if(c == '.') {
-                        lex.token += (char) c;
-                        e = 6;
-                    }
                     else if(Character.isLetter(c)){
                         lex.token += (char) c;
                         e = 7;
