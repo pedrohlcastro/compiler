@@ -86,7 +86,10 @@ public class LexicalAnalysis {
                 case 2:
                     if (c == '}'){
                         e = 1;
-                        this.line++;
+                        this.line++; 
+                    }
+                    if(c == -1){
+                        e = 10;
                     }
                     break;
                 case 3:
