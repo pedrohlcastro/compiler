@@ -34,8 +34,9 @@ public class SymbolTable {
        SymbolTable.st.put("do", new SymbolTableInfo(TokenType.DO)); // do
        SymbolTable.st.put("end", new SymbolTableInfo(TokenType.END)); // end
        SymbolTable.st.put("scan", new SymbolTableInfo(TokenType.SCAN)); // scan
-       SymbolTable.st.put("then", new SymbolTableInfo(TokenType.THEN)); // scan
-
+       SymbolTable.st.put("then", new SymbolTableInfo(TokenType.THEN)); // then
+       SymbolTable.st.put("not", new SymbolTableInfo(TokenType.NOT)); // then
+       
         // operators
        SymbolTable.st.put("and", new SymbolTableInfo(TokenType.AND)); // and
        SymbolTable.st.put("or", new SymbolTableInfo(TokenType.OR)); // or

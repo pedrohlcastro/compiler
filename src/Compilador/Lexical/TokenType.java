@@ -37,6 +37,7 @@ public enum TokenType {
     EQUAL,     // = 
     AND,       // and
     OR,        // or
+    NOT,        //not
     EQUAL_COMP,     // ==
     DIFF,      // !=
     LOWER,     // <
