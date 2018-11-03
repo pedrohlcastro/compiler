@@ -41,6 +41,7 @@ public class SyntaticalAnalysis {
     }
     
     private void eat (TokenType type) throws IOException{
+        System.out.println("Expected = " + type);
         if (type == this.current.type){
             this.current = lex.nextToken();
 //            System.out.println(this.current);
@@ -135,7 +136,7 @@ public class SyntaticalAnalysis {
             case VAR_FLT:
             case VAR_STR:
             case VAR_INT: this.assign_stmt(); this.eat(TokenType.DOT_COMMA); break;
-            case IF: this.if_stmt(); this.eat(TokenType.DOT_COMMA); break;
+            case IF: this.if_stmt(); break;
             case DO: this.while_stmt(); break;
             case SCAN: this.read_stmt(); this.eat(TokenType.DOT_COMMA); break;
             case PRINT: this.write_stmt(); this.eat(TokenType.DOT_COMMA); break;
@@ -147,7 +148,6 @@ public class SyntaticalAnalysis {
     
     // assign-stmt ::= identifier "=" simple_expr
     private void assign_stmt() throws IOException{
-//        System.out.println("AQUI" + this.current);
         if(this.current.type == TokenType.VAR_FLT || this.current.type == TokenType.VAR_INT || this.current.type == TokenType.VAR_STR){
             this.identifier();
             this.eat(TokenType.EQUAL);
@@ -159,16 +159,15 @@ public class SyntaticalAnalysis {
     // if-stmt ::= if condition then stmt-list end | if condition then stmt-list else stmt-list end
     private void if_stmt() throws IOException{
         if(this.current.type == TokenType.IF){
+            this.eat(TokenType.IF);
             this.condition();
             this.eat(TokenType.THEN);
             this.stmt_list();
             if(this.current.type == TokenType.ELSE){
                 this.eat(TokenType.ELSE);
                 this.stmt_list();
-                this.eat(TokenType.END);
-            } else {
-                this.eat(TokenType.END);
             }
+            this.eat(TokenType.END);
         } else {
             this.showError();
         }
@@ -284,6 +283,7 @@ public class SyntaticalAnalysis {
     
     // simple_expr_aux := addOp term simple_expr_aux | lambda
     private void simple_expr_aux() throws IOException{
+
         if(this.current.type == TokenType.PLUS ||this.current.type == TokenType.MINUS || this.current.type == TokenType.OR){
             this.addOp();
             this.term();
@@ -293,6 +293,7 @@ public class SyntaticalAnalysis {
     
     // term := factor_a term_aux
     private void term() throws IOException{
+
         if(this.current.type == TokenType.VAR_FLT || this.current.type == TokenType.VAR_INT || this.current.type == TokenType.VAR_STR 
             || this.current.type == TokenType.CONST_FLOAT || this.current.type == TokenType.CONST_INT || this.current.type == TokenType.LITERAL
             || this.current.type == TokenType.PAR_OPEN || this.current.type == TokenType.NOT || this.current.type == TokenType.MINUS ){
@@ -305,6 +306,7 @@ public class SyntaticalAnalysis {
     
     // term_aux := mulOp factor_a termAux | lambda
     private void term_aux() throws IOException{
+
         if(this.current.type == TokenType.MUL ||this.current.type == TokenType.DIV || this.current.type == TokenType.AND){
             this.mulOp();
             this.factor_a();
@@ -379,8 +381,8 @@ public class SyntaticalAnalysis {
             case DIFF:
                 this.eat(TokenType.DIFF);
                 break;
-            case EQUAL:
-                this.eat(TokenType.DIFF);
+            case EQUAL_COMP:
+                this.eat(TokenType.EQUAL_COMP);
                 break;
             default:
                 this.showError();
