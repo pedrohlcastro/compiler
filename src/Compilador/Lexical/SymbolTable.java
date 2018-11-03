@@ -63,24 +63,24 @@ public class SymbolTable {
     }
     
     public TokenType createVar(String token, int level, TokenType type){
-        SymbolTable.st.put(token, new SymbolTableInfo(TokenType.VAR, level));
-        return TokenType.VAR;
+//        SymbolTable.st.put(token, new SymbolTableInfo(TokenType.VAR, level));
+//        return TokenType.VAR;
 //        JEITO CERTO PARTE 2
-//        if(null != type)
-//            switch (type) {
-//                case INT:
-//                    SymbolTable.st.put(token, new SymbolTableInfo(TokenType.VAR_INT, level));
-//                    return TokenType.VAR_INT;
-//                case FLOAT:
-//                    SymbolTable.st.put(token, new SymbolTableInfo(TokenType.VAR_FLT, level));
-//                    return TokenType.VAR_FLT;
-//                case STRING:
-//                    SymbolTable.st.put(token, new SymbolTableInfo(TokenType.VAR_STR, level));
-//                    return TokenType.VAR_STR;
-//                default:
-//                    return TokenType.INVALID_TOKEN;
-//        }
-//        return TokenType.INVALID_TOKEN;
+        if(null != type)
+            switch (type) {
+                case INT:
+                    SymbolTable.st.put(token, new SymbolTableInfo(TokenType.VAR_INT, level));
+                    return TokenType.VAR_INT;
+                case FLOAT:
+                    SymbolTable.st.put(token, new SymbolTableInfo(TokenType.VAR_FLT, level));
+                    return TokenType.VAR_FLT;
+                case STRING:
+                    SymbolTable.st.put(token, new SymbolTableInfo(TokenType.VAR_STR, level));
+                    return TokenType.VAR_STR;
+                default:
+                    return TokenType.INVALID_TOKEN;
+        }
+        return TokenType.INVALID_TOKEN;
     }
     
     public void printSymbolTable(){

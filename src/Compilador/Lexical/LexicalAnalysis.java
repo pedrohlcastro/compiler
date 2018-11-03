@@ -172,7 +172,7 @@ public class LexicalAnalysis {
                         this.identLevel++;
                     } 
                     else if(lex.type == TokenType.END){
-                        this.identLevel++;
+                        this.identLevel--;
                     }
                     else if(lex.type == TokenType.INT || lex.type == TokenType.FLOAT || lex.type == TokenType.STRING ){
                         this.lastType = lex.type;
@@ -180,13 +180,14 @@ public class LexicalAnalysis {
                         this.lastType = null;
                     }
                 } 
-                /* EXPLODE ERRO DE VARIAVEL JA DECLARADA
-                else {
+                /*EXPLODE ERRO DE VARIAVEL JA DECLARADA*/
+                if(lex.type == TokenType.VAR_FLT ||lex.type == TokenType.VAR_INT ||lex.type == TokenType.VAR_STR) {
                     if(this.lastType != null){
-                        lex.type = st.createVar(lex.token, this.identLevel, this.lastType);
+                        System.out.println("JSEUS" + lex);
+                        System.err.printf ("[PREVIUS DECLARATION ERROR] LINE  - %d: %s\n", this.line, lex.token);
+                        System.exit(0);
                     }
                 }
-               */
             }
             else{
                 lex.type = st.createVar(lex.token, this.identLevel, this.lastType);

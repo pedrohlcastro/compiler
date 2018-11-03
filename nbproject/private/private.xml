@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/pedro/Development/compiler/src/Compilador/Lexical/LexicalAnalysis.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Syntatical/SyntaticalAnalysis.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Lexical/TokenType.java</file>
             <file>file:/home/pedro/Development/compiler/src/Compilador/Lexical/SymbolTable.java</file>
-            <file>file:/home/pedro/Development/compiler/src/Compilador/Lexical/Lexeme.java</file>
-            <file>file:/home/pedro/Development/compiler/src/Compilador/Lexical/SymbolTableInfo.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Compilador.java</file>
         </group>
     </open-files>
 </project-private>

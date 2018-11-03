@@ -12,4 +12,10 @@ public class Lexeme {
         this.token = token;
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Lexeme{" + "token=" + token + ", type=" + type + '}';
+    }
+    
 }

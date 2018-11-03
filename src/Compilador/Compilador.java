@@ -20,6 +20,7 @@ public class Compilador {
         try {
             LexicalAnalysis l = new LexicalAnalysis(args[0]);
             SyntaticalAnalysis s = new SyntaticalAnalysis(l);
+            s.init();
 //            Lexeme lex;
 //            while (checkType((lex = l.nextToken()).type)) {
 //                System.out.printf("(\"%s\", %s)\n", lex.token, lex.type);
