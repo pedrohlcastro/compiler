@@ -67,10 +67,10 @@ public class SyntaticalAnalysis {
     }
     
     private void eat (TokenType type) throws IOException{
-        System.out.println("Expected = " + type);
+        //System.out.println("Expected = " + type);
         if (type == this.current.type){
             this.current = lex.nextToken();
-//            System.out.println(this.current);
+            //System.out.println(this.current);
         }
         else {
             this.showError();
@@ -173,7 +173,9 @@ public class SyntaticalAnalysis {
             case PRINT: cmd = this.write_stmt(); this.eat(TokenType.DOT_COMMA); break;
             default: this.showError(); break;
         }
+//        System.out.println(cmd);
         return cmd;
+        
 
     }
     
@@ -190,6 +192,7 @@ public class SyntaticalAnalysis {
             vl = this.simple_expr();
             as = new AssignCommand(vl, this.lex.line());
             as.addVariable(v);
+            return as;
         } else {
             this.showError();
         }
@@ -339,9 +342,19 @@ public class SyntaticalAnalysis {
     private Variable identifier() throws IOException{
         String n = this.current.token;
         Variable v;
-        if (vars.containsKey(n))
+        if (vars.containsKey(n)){
             v = vars.get(n);
-        else {
+            if(this.current.type == TokenType.VAR_FLT){
+                this.eat(TokenType.VAR_FLT);
+                
+            }else if(this.current.type == TokenType.VAR_INT){
+                this.eat(TokenType.VAR_INT);
+               
+            } else {
+                this.eat(TokenType.VAR_STR);
+                
+            }
+        } else {
             if(this.current.type == TokenType.VAR_FLT){
                 this.eat(TokenType.VAR_FLT);
                 v = new Variable(this.current.token, "float");

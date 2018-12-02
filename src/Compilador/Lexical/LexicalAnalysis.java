@@ -183,7 +183,6 @@ public class LexicalAnalysis {
                 /*EXPLODE ERRO DE VARIAVEL JA DECLARADA*/
                 if(lex.type == TokenType.VAR_FLT ||lex.type == TokenType.VAR_INT ||lex.type == TokenType.VAR_STR) {
                     if(this.lastType != null){
-                        System.out.println("JSEUS" + lex);
                         System.err.printf ("[PREVIUS DECLARATION ERROR] LINE  - %d: %s\n", this.line, lex.token);
                         System.exit(0);
                     }

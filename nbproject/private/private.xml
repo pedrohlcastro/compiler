@@ -3,13 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/pedro/Development/compiler/src/Compilador/Syntatical/SyntaticalAnalysis.java</file>
             <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/IfCommand.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Lexical/LexicalAnalysis.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/MulOp.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/DualNumberExp.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/ConstFloatValue.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/BoolValue.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/IntValue.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/DualBoolExp.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Syntatical/SyntaticalAnalysis.java</file>
             <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/ConstIntValue.java</file>
             <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/AssignCommand.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/PrintCommand.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/WhileCommand.java</file>
             <file>file:/home/pedro/Development/compiler/src/Compilador/Lexical/SymbolTable.java</file>
-            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/BoolValue.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/StringValue.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/AddOp.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/RelOp.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/CompareBoolValue.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/Variable.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/CommandBlock.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/Value.java</file>
             <file>file:/home/pedro/Development/compiler/src/Compilador/Compilador.java</file>
+            <file>file:/home/pedro/Development/compiler/src/Compilador/Semantical/LoadCommand.java</file>
         </group>
     </open-files>
 </project-private>

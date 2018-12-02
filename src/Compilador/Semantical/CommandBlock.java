@@ -22,6 +22,7 @@ public class CommandBlock extends Command {
     @Override
     public void execute() {
         for (Command c: commands){
+//            System.out.println(c);
             c.execute();
         }
     }

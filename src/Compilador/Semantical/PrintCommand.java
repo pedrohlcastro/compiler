@@ -31,17 +31,17 @@ public class PrintCommand extends Command{
         
         if (value instanceof StringValue){
             StringValue sv = (StringValue) value;
-            text = sv.value();
+            text = sv.value() + "\n";
         }
         else if (value instanceof IntValue){
             IntValue iv = (IntValue) value;
             int n = iv.value();
-            text = "" + n;
+            text = "" + n + "\n";
         }
         else if (value instanceof FloatValue){
             FloatValue fv = (FloatValue) value;
             float n = fv.value();
-            text = "" + n;
+            text = "" + n + "\n";
             
         }
         else{

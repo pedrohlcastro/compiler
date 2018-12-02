@@ -16,8 +16,11 @@ public class WhileCommand extends Command{
 
     @Override
     public void execute() {
+//        System.out.println(this.cmd);
         BoolValue expr = ((BoolValue) this.expr);
-        while(expr.value())
+//        System.out.println(expr.value());
+        do{
             cmd.execute();
+        }while(expr.value());
     }
 }

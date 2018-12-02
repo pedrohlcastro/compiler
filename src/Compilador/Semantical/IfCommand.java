@@ -27,7 +27,7 @@ public class IfCommand extends Command{
         BoolValue expr = ((BoolValue) this.expr);
         if(expr.value())
             this.then.execute();
-        else
+        else if(this.elses != null)
             this.elses.execute();
     }
 }
