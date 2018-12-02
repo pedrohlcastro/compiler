@@ -1,5 +1,6 @@
 package Compilador;
 import Compilador.Lexical.*;
+import Compilador.Semantical.Command;
 import Compilador.Syntatical.SyntaticalAnalysis;
 /**
  *
@@ -20,7 +21,8 @@ public class Compilador {
         try {
             LexicalAnalysis l = new LexicalAnalysis(args[0]);
             SyntaticalAnalysis s = new SyntaticalAnalysis(l);
-            s.init();
+            Command c = s.init();
+            c.execute();
 //            Lexeme lex;
 //            while (checkType((lex = l.nextToken()).type)) {
 //                System.out.printf("(\"%s\", %s)\n", lex.token, lex.type);
